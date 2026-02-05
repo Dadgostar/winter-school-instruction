@@ -2,8 +2,11 @@
 
 The purpose of this exercise is to get familiar with the data collection process in a bimanual Franka Research 3 setup using the Gello arms teleoperation devices. In this exercise, you will try two cloth manipulation tasks:
 
-- Fold the cloth.
-- Flatten the cloth.
+- Fold the cloth: the cloth is positioned flat/crumpled on the table, and the goal is to fold it twice along the center line.
+- Flatten the cloth: the cloth is positioned crumpled on the table, and the goal is to flatten it as much as possible. You can try 3 techniques to flatten the cloth:
+    1. Flattening by stretching the cloth from its edges.
+    2. Grab the cloth, swing it and place it back on the table in a flattened manner.
+    3. Use the edge of the table to help flatten the cloth.
 
 ## How to collect an episode?
 
