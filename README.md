@@ -25,7 +25,22 @@ It is important to note that sudden and rapid movements by the teleoperator will
 
 ## How to see your collected data?
 
-The data is recorded with mcap format. The collected episode is accessible via _____.
+The data is recorded with MCAP format - a file format for multimodal log data. The format supports viewing and playing the data using the `rosbag` ROS package. 
+
+### Locate the collected data
+
+#### Step 1: Find your episode in the UI
+1. In the Franka Data Collection UI, navigate to the `EPISODES` tab
+2. Using the date and time information, locate your data in the collected data list
+3. Copy the data name hash (e.g., `Episode ...`)
+
+#### Step 2: Access the data files
+
+The collected data is saved in `/data_farm` on the workbench.
+
+```bash
+cd /data_farm
+```
 
 ## Notes
 
