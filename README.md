@@ -12,7 +12,7 @@ The purpose of this exercise is to get familiar with the data collection process
 
 You can manage the whole process through Franka Data Collection UI. The following are the step-by-step instructions to collect an episode. You need at least 2 people to do this; in this scenario, person A manages the episode start/stop at the workstation, and person B does the teleoperation:
 
-1. (For Person A) Navigate to the Franka Data Collection UI (`localhost:4000`), it is one of the bookmarks on the browser. Check Picture ???
+1. (For Person A) Navigate to the [Franka Data Collection UI](localhost:4000), it is one of the bookmarks on the browser. Check Picture ???
 2. (For Person A) Make sure all boxes in the system status panel are green. (Don’t mind the Gripper boxes as they should turn green when starting teleoperation.)
 3. (For Person A) Check whether all camera streams are working. Don't mind the lag/jitters on data collection camera  streams. If you want to see a smoother stream of the wrist or head cameras, you can view it directly in the ROS rqt viewer. Check the [Notes](#notes) section below for instructions. 
 4. (For Person A) Click on `Start Teleoperation`.
