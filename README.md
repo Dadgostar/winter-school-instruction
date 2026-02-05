@@ -16,25 +16,25 @@ You can manage the whole process through Franka Data Collection UI. The followin
 <p align="center">
   <img src="media/franka_data_collection_ui.png" alt="Franka Data Collection UI" width="1200">
 </p>
+
 2. (For Person A) Make sure all boxes in the system status panel are green. (Don’t mind the Gripper boxes as they should turn green when starting teleoperation.)
 3. (For Person A) Check whether all camera streams are working. Don't mind the lag/jitters on data collection camera  streams. If you want to see a smoother stream of the wrist or head cameras, you can view it directly in the ROS rqt viewer. Check the [Notes](#notes) section below for instructions. 
 4. (For Person A) Click on `Start Teleoperation`.
 5. (For Person B) Should pick up the Gello arms carefully and adopt a posture similar to that of the Franka arms and hold that posture.
 6. (For Person A) While person B is holding still, click on `Reset Robot Position` in the UI; this adjusts the robot arms to Gello arm configuration, and the robot is ready to be teleoperated.
-It is important to note that sudden and rapid movements by the teleoperator will cause the robot to enter emergency lock mode. In such a case, activate the emergency brakes, click on `Stop Teleoperation`, and inform your operator guide to resume operation. 
+ **It is important to note that sudden and rapid movements by the teleoperator will cause the robot to enter emergency lock mode. In such a case, activate the emergency brakes, click on `Stop Teleoperation`, and inform your operator guide to resume operation.**
 
-1. (For Person A) When ready, select your task using `Change Tasks` then press `Start Recording`, 
-2. (For Person B) Perform their desired task using the Gello arms.
-3. (For Person A) Upon finishing the task, click `Stop Recording`. A menu will appear, allowing you to decide whether to save or discard your data. Note that the system is still in the teleoperation mode.
-4.  (For Person A) Click on `Stop Teleoperation`
-5.  (For Person B) Insert back the Gello arms into their calibration rods. Check the pictures below to see the correct configuration pose.
-
+7. (For Person A) When ready, select your task using `Change Tasks` then press `Start Recording`.
+8. (For Person B) Perform their desired task using the Gello arms.
+9.  (For Person A) Upon finishing the task, click `Stop Recording`. A menu will appear, allowing you to decide whether to save or discard your data. Note that the system is still in the teleoperation mode.
+10.  (For Person A) Click on `Stop Teleoperation`
+11.  (For Person B) Insert back the Gello arms into their calibration rods. Check the pictures below to see the correct configuration pose.
 <p align="center">
   <a href="media/gello_arms_rest_pose_calibration_rods.jpg" >
-    <img src="media/gello_arms_rest_pose_calibration_rods.jpg" alt="Gello Arms Calibration Pose" width="500">
+    <img src="media/gello_arms_rest_pose_calibration_rods.jpg" alt="Gello Arms Calibration Pose" width="300">
   </a>
   <a href="media/gello_arms_rest_pose_joint_config.jpeg" >
-    <img src="media/gello_arms_rest_pose_joint_config.jpeg" alt="Gello Arms Joint Configuration" width="500">
+    <img src="media/gello_arms_rest_pose_joint_config.jpeg" alt="Gello Arms Joint Configuration" width="300">
   </a>
 </p>
 
