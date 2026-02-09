@@ -24,17 +24,17 @@ You can manage the whole process through Franka Data Collection UI. The followin
 6. (For Person A) While person B is holding still, click on `Reset Robot Position` in the UI; this adjusts the robot arms to Gello arm configuration, and the robot is ready to be teleoperated.
  **It is important to note that sudden and rapid movements by the teleoperator will cause the robot to enter emergency lock mode. In such a case, activate the emergency brakes, click on `Stop Teleoperation`, and inform your operator guide to resume operation.**
 
-7. (For Person A) When ready, select your task using `Change Tasks` then press `Start Recording`.
+7. (For Person A) When ready, select your task using `Change Tasks` then press `Start Recording`. To get familiar with the teleoperation, you can choose `Testing` as for the task.
 8. (For Person B) Perform their desired task using the Gello arms.
-9.  (For Person A) Upon finishing the task, click `Stop Recording`. A menu will appear, allowing you to decide whether to save or discard your data. Note that the system is still in the teleoperation mode.
+9.  (For Person A) Upon finishing the task, click `Stop Recording`. A menu will appear, allowing you to decide whether to save or discard your data. **Note that the system is still in the teleoperation mode.**
 10.  (For Person A) Click on `Stop Teleoperation`
 11.  (For Person B) Insert back the Gello arms into their calibration rods. Check the pictures below to see the correct configuration pose.
 <p align="center">
   <a href="media/gello_arms_rest_pose_calibration_rods.jpg" >
-    <img src="media/gello_arms_rest_pose_calibration_rods.jpg" alt="Gello Arms Calibration Pose" width="300">
+    <img src="media/gello_arms_rest_pose_calibration_rods.jpg" alt="Gello Arms Calibration Pose" width="450">
   </a>
   <a href="media/gello_arms_rest_pose_joint_config.jpeg" >
-    <img src="media/gello_arms_rest_pose_joint_config.jpeg" alt="Gello Arms Joint Configuration" width="300">
+    <img src="media/gello_arms_rest_pose_joint_config.jpeg" alt="Gello Arms Joint Configuration" width="450">
   </a>
 </p>
 
@@ -47,8 +47,9 @@ The data is recorded with MCAP format - a file format for multimodal log data. T
 #### Step 1: Find your episode in the UI
 1. In the Franka Data Collection UI, navigate to the `EPISODES` tab
 2. Using the date and time information, locate your data in the collected data list
-3. Copy the data name hash (e.g., `Episode ...`)
-
+3. Copy the data name hash (e.g., `Episode 019c42f8-2fb2-7787-9d23-fc16538a736a`)
+4. You can view the data in rqt, by enter 
+5. 
 #### Step 2: Access the data files
 
 The collected data is saved in `/data_farm` on the workbench.
@@ -56,21 +57,16 @@ The collected data is saved in `/data_farm` on the workbench.
 ```bash
 cd /data_farm
 ```
-
 ## Notes
 
 - Don’t mind the lag/jitters on data collection camera  streams, if you want to see a smoother stream of the wrist or head cameras, you can viewing in ROS rqt directly via:
   1. Press `Ctrl + alt + T` to open a new terminal window.
-  2. Type `terminator -l debugging` to open the debugging workspace.
-  3. Type `docker compose exec ros-debug-franka bash -lc 'source /opt/ros/jazzy/setup.bash && rqt'` to open the ROS rqt viewer application
-  4. In rqt viewer select `Plugins` -> `Visualization` -> `Image view`. A grey image should appear.
-In the dropdown menu of the rqt viewer select the ROS topic of the camera you wish to view:
-Left wrist camera: `/wrist_camera_left/D405/color/image_rect_raw`
-Right wrist camera: `/wrist_camera_right/D405/color/image_rect_raw`
-Head camera: `/zed/zed_node/rgb/image_rect_color`
+  2. Type `terminator -l vis` to open the visualization workspace.
+  3. Type `docker compose up -d vis_live`. This opens a ROS2 rqt window with preconfigured video streams of all three cameras.
 
 
-- If the franka arm is blinking yellow, this is a warning indicating that one or some of the joints are near their limits.
+
+- If the franka arm is blinking yellow, this is a warning indicating that one or some of the joints are near their limits. Recommended action would be to teleoperate back to a more centered pose and avoid aggressive motions that may cause the joints to hit their limits.
 
 - Aggressive and too dynamic motions may cause the arms to activate their emergency mode and get locked, in such case:
   - Stop teleoperating via the Franka Data Collection UI.

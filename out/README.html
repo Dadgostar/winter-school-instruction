@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Instructions for the user</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="instructions-for-the-user">Instructions for the user</h1>
+<p>The purpose of this exercise is to get familiar with the data collection process in a bimanual Franka Research 3 setup using the Gello arms teleoperation devices. In this exercise, you will try two cloth manipulation tasks:</p>
+<ul>
+<li>Fold the cloth: the cloth is positioned flat/crumpled on the table, and the goal is to fold it twice along the center line.</li>
+<li>Flatten the cloth: the cloth is positioned crumpled on the table, and the goal is to flatten it as much as possible. You can try 3 techniques to flatten the cloth:
+<ol>
+<li>Flattening by stretching the cloth from its edges.</li>
+<li>Grab the cloth, swing it and place it back on the table in a flattened manner.</li>
+<li>Use the edge of the table to help flatten the cloth.</li>
+</ol>
+</li>
+</ul>
+<h2 id="how-to-collect-an-episode">How to collect an episode?</h2>
+<p>You can manage the whole process through Franka Data Collection UI. The following are the step-by-step instructions to collect an episode. You need at least 2 people to do this; in this scenario, person A manages the episode start/stop at the workstation, and person B does the teleoperation:</p>
+<ol>
+<li>(For Person A) Navigate to the <a href="localhost:4000">Franka Data Collection UI</a>, it is one of the bookmarks on the browser. Below is the webpage that you should see.</li>
+</ol>
+<p align="center">
+  <img src="file:////home/mahed/winter-school-instruction/media/franka_data_collection_ui.png" alt="Franka Data Collection UI" width="1200">
+</p>
+<ol start="2">
+<li>
+<p>(For Person A) Make sure all boxes in the system status panel are green. (Don’t mind the Gripper boxes as they should turn green when starting teleoperation.)</p>
+</li>
+<li>
+<p>(For Person A) Check whether all camera streams are working. Don't mind the lag/jitters on data collection camera  streams. If you want to see a smoother stream of the wrist or head cameras, you can view it directly in the ROS rqt viewer. Check the <a href="#notes">Notes</a> section below for instructions.</p>
+</li>
+<li>
+<p>(For Person A) Click on <code>Start Teleoperation</code>.</p>
+</li>
+<li>
+<p>(For Person B) Should pick up the Gello arms carefully and adopt a posture similar to that of the Franka arms and hold that posture.</p>
+</li>
+<li>
+<p>(For Person A) While person B is holding still, click on <code>Reset Robot Position</code> in the UI; this adjusts the robot arms to Gello arm configuration, and the robot is ready to be teleoperated.
+<strong>It is important to note that sudden and rapid movements by the teleoperator will cause the robot to enter emergency lock mode. In such a case, activate the emergency brakes, click on <code>Stop Teleoperation</code>, and inform your operator guide to resume operation.</strong></p>
+</li>
+<li>
+<p>(For Person A) When ready, select your task using <code>Change Tasks</code> then press <code>Start Recording</code>. To get familiar with the teleoperation, you can choose <code>Testing</code> as for the task.</p>
+</li>
+<li>
+<p>(For Person B) Perform their desired task using the Gello arms.</p>
+</li>
+<li>
+<p>(For Person A) Upon finishing the task, click <code>Stop Recording</code>. A menu will appear, allowing you to decide whether to save or discard your data. <strong>Note that the system is still in the teleoperation mode.</strong></p>
+</li>
+<li>
+<p>(For Person A) Click on <code>Stop Teleoperation</code></p>
+</li>
+<li>
+<p>(For Person B) Insert back the Gello arms into their calibration rods. Check the pictures below to see the correct configuration pose.</p>
+</li>
+</ol>
+<p align="center">
+  <a href="media/gello_arms_rest_pose_calibration_rods.jpg" >
+    <img src="file:////home/mahed/winter-school-instruction/media/gello_arms_rest_pose_calibration_rods.jpg" alt="Gello Arms Calibration Pose" width="450">
+  </a>
+  <a href="media/gello_arms_rest_pose_joint_config.jpeg" >
+    <img src="file:////home/mahed/winter-school-instruction/media/gello_arms_rest_pose_joint_config.jpeg" alt="Gello Arms Joint Configuration" width="450">
+  </a>
+</p>
+<h2 id="how-to-see-your-collected-data">How to see your collected data?</h2>
+<p>The data is recorded with MCAP format - a file format for multimodal log data. The format supports viewing and playing the data using the <code>rosbag</code> ROS package.</p>
+<h3 id="locate-the-collected-data">Locate the collected data</h3>
+<h4 id="step-1-find-your-episode-in-the-ui">Step 1: Find your episode in the UI</h4>
+<ol>
+<li>In the Franka Data Collection UI, navigate to the <code>EPISODES</code> tab</li>
+<li>Using the date and time information, locate your data in the collected data list</li>
+<li>Copy the data name hash (e.g., <code>Episode 019c42f8-2fb2-7787-9d23-fc16538a736a</code>)</li>
+<li>You can view the data in rqt, by enter</li>
+<li></li>
+</ol>
+<h4 id="step-2-access-the-data-files">Step 2: Access the data files</h4>
+<p>The collected data is saved in <code>/data_farm</code> on the workbench.</p>
+<pre><code class="language-bash"><span class="hljs-built_in">cd</span> /data_farm
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p>Don’t mind the lag/jitters on data collection camera  streams, if you want to see a smoother stream of the wrist or head cameras, you can viewing in ROS rqt directly via:</p>
+<ol>
+<li>Press <code>Ctrl + alt + T</code> to open a new terminal window.</li>
+<li>Type <code>terminator -l vis</code> to open the visualization workspace.</li>
+<li>Type <code>docker compose up -d vis_live</code>. This opens a ROS2 rqt window with preconfigured video streams of all three cameras.</li>
+</ol>
+</li>
+<li>
+<p>If the franka arm is blinking yellow, this is a warning indicating that one or some of the joints are near their limits. Recommended action would be to teleoperate back to a more centered pose and avoid aggressive motions that may cause the joints to hit their limits.</p>
+</li>
+<li>
+<p>Aggressive and too dynamic motions may cause the arms to activate their emergency mode and get locked, in such case:</p>
+<ul>
+<li>Stop teleoperating via the Franka Data Collection UI.</li>
+<li>If the Franka arms are blinking a red light, that means the emergency locks are activated and you need to inform your helper operator to resume data collection.</li>
+</ul>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
