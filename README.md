@@ -42,7 +42,6 @@ You can manage the whole process through Franka Data Collection UI. The followin
 
 The data is recorded with MCAP format - a file format for multimodal log data. The format supports viewing and playing the data using the `rosbag` ROS package. 
 
-### Locate the collected data
 1. In the Franka Data Collection UI, navigate to the `EPISODES` tab
 2. Using the date and time information, locate your data in the collected data list
 3. Copy the data name hash (e.g., Episode `019c42f8-2fb2-7787-9d23-fc16538a736a`)
