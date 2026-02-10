@@ -47,23 +47,23 @@ The data is recorded with MCAP format - a file format for multimodal log data. T
 #### Step 1: Find your episode in the UI
 1. In the Franka Data Collection UI, navigate to the `EPISODES` tab
 2. Using the date and time information, locate your data in the collected data list
-3. Copy the data name hash (e.g., `Episode 019c42f8-2fb2-7787-9d23-fc16538a736a`)
-4. You can view the data in rqt, by enter 
-5. 
+3. Copy the data name hash (e.g., Episode `019c42f8-2fb2-7787-9d23-fc16538a736a`)
+4. Press `Ctrl + alt + T` to open a new terminal window.
+5. Type `terminator -l vis-bag` to open the visualization workspace.
+6. type `BAG_ID=<data_hash> dcoker compose up vis_bag`. This will load the cameras' data into rqt.  
 #### Step 2: Access the data files
 
-The collected data is saved in `/data_farm` on the workbench.
+The collected data is saved in `/data_farm` on the workbench. You can access the data files by opening a terminal and navigating to the directory:
 
 ```bash
 cd /data_farm
 ```
+
 ## Notes
 
 - Don’t mind the lag/jitters on data collection camera  streams, if you want to see a smoother stream of the wrist or head cameras, you can viewing in ROS rqt directly via:
   1. Press `Ctrl + alt + T` to open a new terminal window.
-  2. Type `terminator -l vis` to open the visualization workspace.
-  3. Type `docker compose up -d vis_live`. This opens a ROS2 rqt window with preconfigured video streams of all three cameras.
-
+  2. Type `terminator -l vis-live` to open the visualization workspace.  This opens a ROS2 rqt window with preconfigured video streams of all three cameras.
 
 
 - If the franka arm is blinking yellow, this is a warning indicating that one or some of the joints are near their limits. Recommended action would be to teleoperate back to a more centered pose and avoid aggressive motions that may cause the joints to hit their limits.
